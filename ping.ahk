@@ -3,7 +3,7 @@
 #NoEnv
 Version := 0
 
-TrayTip, %A_ScriptName%, Текущая версия: %Version%
+TrayTip, %A_ScriptName%, РўРµРєСѓС‰Р°СЏ РІРµСЂСЃРёСЏ: %Version%
 
 Loop %0%
 	ComParam%A_Index% := %A_Index%
@@ -34,13 +34,13 @@ Update(PID, Path) {
 	Process, WaitClose, %PID%, 3
 	If ErrorLevel
 	{
-		MsgBox, % 16, Update, Не удаётся закрыть процесс
+		MsgBox, % 16, Update, РќРµ СѓРґР°С‘С‚СЃСЏ Р·Р°РєСЂС‹С‚СЊ РїСЂРѕС†РµСЃСЃ
 		ExitApp
 	}
 	FileCopy, %A_ScriptFullPath%, %Path%, 1
 	If ErrorLevel
 	{
-		MsgBox, % 16, Update, Не удалось копирование, возможно были запущены несколько экземпляров программы
+		MsgBox, % 16, Update, РќРµ СѓРґР°Р»РѕСЃСЊ РєРѕРїРёСЂРѕРІР°РЅРёРµ, РІРѕР·РјРѕР¶РЅРѕ Р±С‹Р»Рё Р·Р°РїСѓС‰РµРЅС‹ РЅРµСЃРєРѕР»СЊРєРѕ СЌРєР·РµРјРїР»СЏСЂРѕРІ РїСЂРѕРіСЂР°РјРјС‹
 		ExitApp
 	}
 	PID := DllCall("GetCurrentProcessId")
